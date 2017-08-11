@@ -1,0 +1,73 @@
+==> default: Running provisioner: chef_client...
+==> default: Detected Chef (latest) is already installed
+==> default: Creating folder to hold client key...
+==> default: Uploading chef client validation key...
+==> default: Generating chef JSON and uploading...
+==> default: Running chef-client...
+==> default: [2017-08-11T01:44:09+00:00] INFO: Forking chef instance to converge...
+==> default: Starting Chef Client, version 13.2.20
+==> default: [2017-08-11T01:44:09+00:00] INFO: *** Chef 13.2.20 ***
+==> default: [2017-08-11T01:44:09+00:00] INFO: Platform: i686-linux
+==> default: [2017-08-11T01:44:09+00:00] INFO: Chef-client pid: 11599
+==> default: [2017-08-11T01:44:09+00:00] INFO: The plugin path /etc/chef/ohai/plugins does not exist. Skipping...
+==> default: [2017-08-11T01:44:12+00:00] INFO: Setting the run_list to ["role[webserver]"] from CLI options
+==> default: [2017-08-11T01:44:13+00:00] INFO: Run List is [role[webserver]]
+==> default: [2017-08-11T01:44:13+00:00] INFO: Run List expands to [artboss]
+==> default: [2017-08-11T01:44:13+00:00] INFO: Starting Chef Run for vagrant-82e5548a
+==> default: [2017-08-11T01:44:13+00:00] INFO: Running start handlers
+==> default: [2017-08-11T01:44:13+00:00] INFO: Start handlers complete.
+==> default: [2017-08-11T01:44:15+00:00] INFO: Error while reporting run start to Data Collector. URL: https://api.chef.io/organizations/timonsplus/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+==> default: resolving cookbooks for run list: ["artboss"]
+==> default: [2017-08-11T01:44:16+00:00] INFO: Loading cookbooks [artboss@0.1.0]
+==> default: Synchronizing Cookbooks:
+==> default: [2017-08-11T01:44:16+00:00] INFO: Storing updated cookbooks/artboss/recipes/default.rb in the cache.
+==> default:   
+==> default: - artboss (0.1.0)
+==> default: Installing Cookbook Gems:
+==> default: Compiling Cookbooks...
+==> default: Converging 12 resources
+==> default: Recipe: artboss::default
+==> default:   
+==> default: * apt_package[zip] action install
+==> default:  (skipped due to only_if)
+==> default:   * apt_package[default-jdk] action install
+==> default:  (skipped due to only_if)
+==> default:   * remote_file[/var/chef/cache/jboss-as-7.1.1.Final.zip] action create_if_missing
+==> default:  (up to date)
+==> default:   
+==> default: * bash[unpack_jboss] action run
+==> default:  (skipped due to not_if)
+==> default:   
+==> default: * remote_file[/var/chef/cache/master.zip] action create_if_missing
+==> default:  (up to date)
+==> default:   
+==> default: * bash[unpack_app] action run
+==> default:  (skipped due to not_if)
+==> default:   
+==> default: * bash[app_dodeploy] action run
+==> default:  (skipped due to not_if)
+==> default:   
+==> default: * linux_user[jboss] action create
+==> default:  (skipped due to not_if)
+==> default:   
+==> default: * cookbook_file[/etc/init.d/jboss-as] action create_if_missing
+==> default:  (up to date)
+==> default:   
+==> default: * execute[ch_owner] action run
+==> default: [2017-08-11T01:44:17+00:00] INFO: execute[ch_owner] ran successfully
+==> default: 
+==> default:     - execute sudo chown -R jboss:jboss /usr/share/jboss-as-7.1.1.Final/
+==> default:   * execute[run_service_step] action run
+==> default: [2017-08-11T01:44:17+00:00] INFO: execute[Guard resource] ran successfully
+==> default:  (skipped due to not_if)
+==> default:   
+==> default: * execute[check_the_app] action run
+==> default: [2017-08-11T01:44:18+00:00] INFO: execute[Guard resource] ran successfully
+==> default:  (skipped due to not_if)
+==> default: [2017-08-11T01:44:19+00:00] INFO: Chef Run complete in 5.924110304 seconds
+==> default: Running handlers:
+==> default: [2017-08-11T01:44:19+00:00] INFO: Running report handlers
+==> default: Running handlers complete
+==> default: [2017-08-11T01:44:19+00:00] INFO: Report handlers complete
+==> default: Chef Client finished, 1/12 resources updated in 09 seconds
+==> default: [2017-08-11T01:44:19+00:00] INFO: Sending resource update report (run-id: b6d2a77d-8ef9-4fd7-8b85-1ba9f82ade5c)

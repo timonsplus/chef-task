@@ -1,0 +1,64 @@
+52.174.243.63 -----> Existing Chef installation detected
+
+52.174.243.63 Starting the first Chef Client run...
+
+52.174.243.63 Starting Chef Client, version 13.2.20[0m
+
+52.174.243.63 resolving cookbooks for run list: ["artboss"][0m
+
+52.174.243.63 Synchronizing Cookbooks:[0m
+
+52.174.243.63   - artboss (0.1.0)[0m
+
+52.174.243.63 Installing Cookbook Gems:[0m
+
+52.174.243.63 Compiling Cookbooks...[0m
+
+52.174.243.63 Converging 11 resources[0m
+
+52.174.243.63 Recipe: artboss::default[0m
+
+52.174.243.63   * apt_package[zip] action install
+
+52.174.243.63     [32m- install version 3.0-8 of package zip[0m
+
+52.174.243.63 [0m  * apt_package[default-jdk] action install
+
+52.174.243.63     [32m- install version 2:1.7-51 of package default-jdk[0m
+
+52.174.243.63 [0m  * remote_file[/var/chef/cache/jboss-as-7.1.1.Final.zip] action create_if_missing (up to date)
+
+52.174.243.63   * bash[unpack_jboss] action run
+
+52.174.243.63     [32m- execute "bash"  "/tmp/chef-script20170811-1649-1qy8ekk"[0m
+
+52.174.243.63 [0m  * remote_file[/var/chef/cache/master.zip] action create_if_missing (up to date)
+
+52.174.243.63   * bash[unpack_app] action run
+
+52.174.243.63     [32m- execute "bash"  "/tmp/chef-script20170811-1649-puydh3"[0m
+
+52.174.243.63 [0m  * bash[app_dodeploy] action run
+
+52.174.243.63     [32m- execute "bash"  "/tmp/chef-script20170811-1649-yesong"[0m
+
+52.174.243.63 [0m  * linux_user[jboss] action create (up to date)
+
+52.174.243.63   * cookbook_file[/etc/init.d/jboss-as] action create (up to date)
+
+52.174.243.63   * execute[ch_owner] action run
+
+52.174.243.63     [32m- execute sudo chown -R jboss:jboss /usr/share/jboss-as-7.1.1.Final/[0m
+
+52.174.243.63 [0m  * execute[run_service_step] action run
+
+52.174.243.63     [32m- execute /etc/init.d/jboss-as start[0m
+
+52.174.243.63 [0m[0m
+
+52.174.243.63 Running handlers:[0m
+
+52.174.243.63 Running handlers complete
+
+52.174.243.63 [0mChef Client finished, 7/11 resources updated in 39 seconds[0m
+

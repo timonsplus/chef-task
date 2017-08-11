@@ -1,0 +1,15 @@
+
+nagibator@SuperUbuntu:~$ curl localhost:8080/hello-world/
+<html>
+<head>
+<title>Hello World!</title>
+</head>
+<body>
+        <h1>Hello World!</h1>
+        <p>
+                It is now
+                Fri Aug 11 00:51:10 UTC 2017</p>
+        <p>
+                You are coming from
+                127.0.0.1</p>
+</body>nagibator@SuperUbuntu:~$
