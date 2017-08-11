@@ -1,0 +1,21 @@
+JBOSS_USER=jboss
+JBOSS_DIR=/usr/share/jboss-as-7.1.1.Final/
+case "$1" in
+start)
+echo "Run JBOSS"
+start-stop-daemon --start --quiet --background --chuid $JBOSS_USER --exec $JBOSS_DIR/bin/standalone.sh
+;;
+stop)
+echo "Stop JBOSS"
+start-stop-daemon --start --quiet --background --chuid $JBOSS_USER --exec $JBOSS_DIR/bin/jboss-cli.sh -- --connect command=:shutdown
+;;
+log)
+echo "Showing server.log..."
+tail -100f $JBOSS_DIR/standalone/log/server.log
+;;
+*)
+echo "SYNTAX: /etc/init.d/jboss-as {start|stop}"
+exit 1
+;;
+esac
+exit 0
